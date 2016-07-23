@@ -6,6 +6,7 @@ var main = function() {
 		var b = parseNumber('#number-b');
 
 		var sum = add(a,b);
+		printHistory(a,b,sum,'+');
 		printScore(sum);
 	});
 
@@ -14,6 +15,7 @@ var main = function() {
 		var b = parseNumber('#number-b');
 
 		var sub = subt(a,b);
+		printHistory(a,b,sub,'-');
 		printScore(sub);
 	});
 
@@ -22,6 +24,7 @@ var main = function() {
 		var b = parseNumber('#number-b');
 
 		var mul = mult(a,b);
+		printHistory(a,b,mul,'*')
 		printScore(mul);
 	});
 
@@ -30,9 +33,18 @@ var main = function() {
 		var b = parseNumber('#number-b');
 
 		var div = divi(a,b);
+		printHistory(a,b,div,'/');
 		printScore(div);
 	});
 
+	$('#clear').click(function(){
+		$('#history').empty();
+	})
+
+}
+
+function printHistory(a, b, score, typeOfAction){
+	$('#history').append('<p>' + a + ' ' + typeOfAction + ' ' + b + ' ' + '=' + ' ' + score + '</p>');
 }
 
 function parseNumber(id){
