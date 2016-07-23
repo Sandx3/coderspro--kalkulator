@@ -37,10 +37,18 @@ var main = function() {
 		printScore(div);
 	});
 
+	$('#pow').click(function(){
+		var a = parseNumber('#number-a');
+		var b = parseNumber('#number-b');
+
+		var pow = Math.pow(a,b);
+		printHistory(a,b,pow,'^');
+		printScore(pow);
+	});
+
 	$('#clear').click(function(){
 		$('#history').empty();
-	})
-
+	});
 }
 
 function printHistory(a, b, score, typeOfAction){
